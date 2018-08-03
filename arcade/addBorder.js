@@ -14,8 +14,7 @@ function addBorder(picture) {
     return result;
 }
 
-let picture = ["abc",
-"ded"];
+let picture = ["abc","ded"];
 
 r = addBorder(picture);
 console.log(r);
