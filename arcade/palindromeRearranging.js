@@ -4,7 +4,7 @@ function palindromeRearranging(inputString) {
     // Check number of characters in string
     numOfElements = inputString.length;
     if (numOfElements%2!==0) {
-        // If number of character is odd, then it is allowed to have in middle character which occurs only once
+        // If number of character is odd, then it is allowed to have in middle character repeated odd number of times which occurs only once
         odd = true;
     }
 
@@ -18,18 +18,15 @@ function palindromeRearranging(inputString) {
     }
 
     // Loop through all properties in storage objects, and check if number of characters is even number
-    // When odd number of characters in string is found, allow only one character to allow only once
+    // When odd number of characters in string is found, allow it only once
     for (let el in storage) {
-        if (storage[el]===1) {
+        if (storage[el]%2!==0) {
             if (odd && oddCounter < 2) {
                 oddCounter++;
             } else {
                 result = false;
                 break;
             }
-        } else if (storage[el]%2!==0) {
-            result = false;
-            break;
         }
     }
 
@@ -37,6 +34,9 @@ function palindromeRearranging(inputString) {
 }
 
 let s = "";
+s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbcccc";
+s = "zzz";
 s = "aabb";
+s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc";
 
 console.log(palindromeRearranging(s));
